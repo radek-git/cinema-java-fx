@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.radek.cinema.main.MainController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="222.0" style="-fx-background-color: #1d1d1d;;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button fx:id="mainPageButton" mnemonicParsing="false" onAction="#onMainPageButtonClick" prefHeight="58.0" prefWidth="226.0" stylesheets="@../styles/transparent_button_style.css" text="Strona główna" />
+            <Button fx:id="orderHistoryButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#onOrderHistoryButtonClick" prefHeight="58.0" prefWidth="226.0" stylesheets="@../styles/transparent_button_style.css" text="Historia zamówień" />
+            <Button fx:id="settingsButton" layoutX="10.0" layoutY="161.0" mnemonicParsing="false" onAction="#onSettingsButtonClick" prefHeight="58.0" prefWidth="226.0" stylesheets="@../styles/transparent_button_style.css" text="Ustawienia" />
+            <Button fx:id="logoutButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="58.0" prefWidth="226.0" stylesheets="@../styles/transparent_button_style.css" text="Wyloguj" />
+         </children></VBox>
+      <AnchorPane fx:id="anchorPane" layoutX="222.0" prefHeight="600.0" prefWidth="678.0" />
+   </children>
+</AnchorPane>

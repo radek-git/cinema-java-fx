@@ -12,11 +12,9 @@ public class Actor implements Serializable {
     @Column(name = "ID_ACTOR", nullable = false, length = 11)
     private int id;
 
-    @Basic
     @Column(name = "NAME", length = 80)
     private String name;
 
-    @Basic
     @Column(name = "SURNAME", length = 80)
     private String surname;
 

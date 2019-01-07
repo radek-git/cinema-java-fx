@@ -14,17 +14,21 @@ public class Order implements Serializable {
     @Column(name = "ID_ORDER")
     private int id;
 
-    @Basic
-    @Column(name = "ID_SEANCE")
-    private int seanceId;
+//    @Basic
+//    @Column(name = "ID_SEANCE")
+//    private int seanceId;
 
-    @Basic
-    @Column(name = "ID_USER")
-    private Integer userId;
+    @OneToOne(fetch = FetchType.LAZY, optional = false) //optional ma 2 opcje - true albo false.
+    @JoinColumn(name = "ID_SEANCE", referencedColumnName = "ID_SEANCE")
+    private Seance seance;
 
-    @Basic
-    @Column(name = "ID_EMPLOYEE")
-    private Integer employeeId;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_USER", referencedColumnName = "ID_USER")
+    private User user;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_EMPLOYEE", referencedColumnName = "ID_EMPLOYEE")
+    private Employee employee;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "order_tickets", joinColumns = {@JoinColumn(name = "ID_ORDER")},
@@ -35,42 +39,30 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(int seanceId, Integer userId, Integer employeeId, Set<Ticket> tickets) {
-        this.seanceId = seanceId;
-        this.userId = userId;
-        this.employeeId = employeeId;
+    public Order(Seance seance, User user, Employee employee, Set<Ticket> tickets) {
+        this.seance = seance;
+        this.user = user;
+        this.employee = employee;
         this.tickets = tickets;
-    }
-
-    public Order(int seanceId, Integer userId, Integer employeeId) {
-        this.seanceId = seanceId;
-        this.userId = userId;
-        this.employeeId = employeeId;
-        this.tickets = new HashSet<>();
     }
 
     public int getId() {
         return id;
     }
 
-    public Integer getSeanceId() {
-        return seanceId;
+    public Seance getSeance() {
+        return seance;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
     public Set<Ticket> getTickets() {
         return tickets;
-    }
-
-    @Override
-    public String toString() {
-        return "Id zamowienia: " + id + " Id seansu: " + seanceId;// + seance.getMovie().getTitle();
     }
 }

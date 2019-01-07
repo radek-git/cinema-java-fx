@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
@@ -25,11 +27,11 @@ public class Database {
     private static SessionFactory sessionFactory;
 
     private Database() {
-        Configuration configObj = new Configuration();
-        configObj.configure("hibernate.cfg.xml");
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                .configure("hibernate.cfg.xml").build();
 
-        ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
-        sessionFactory = configObj.buildSessionFactory(serviceRegistryObj);
+        Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
+        sessionFactory = metadata.buildSessionFactory();
     }
 
     public static Database getInstance() {
@@ -92,8 +94,8 @@ public class Database {
     }
 
     public void hibernateCostam() {
-//        try {
-//            session = sessionFactory.openSession();
+        try {
+            session = sessionFactory.openSession();
 //
 //            session.getTransaction().begin();
 
@@ -128,12 +130,16 @@ public class Database {
 //            Ticket ticket = (Ticket) session.get(Ticket.class, 1);
 //            System.out.println(ticket.getSeanceId());
 //            System.out.println(ticket.getTicketType().getName());
-//
+
+            Order order = session.get(Order.class, 13);
+            System.out.println(order.getId());
+            System.out.println(order.getSeance().getId());
 //
 //            session.getTransaction().commit();
-//        } catch (Exception e) {
+        } catch (Exception e) {
+            e.printStackTrace();
 //            session.getTransaction().rollback();
-//        }
+        }
     }
 
     public void close() {

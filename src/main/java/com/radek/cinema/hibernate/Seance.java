@@ -14,15 +14,16 @@ public class Seance implements Serializable {
     @Column(name = "ID_SEANCE")
     private int id;
 
-    @Basic
-    @Column(name = "ID_MOVIE")
-    private int movieId;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_MOVIE", referencedColumnName = "ID_MOVIE")
+    private Movie movie;
 
-    @Basic
-    @Column(name = "ID_ROOM")
-    private int roomId;
 
-    @Basic
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_ROOM", referencedColumnName = "ID_ROOM")
+    private Room room;
+
+
     @Column(name = "DATETIME")
     private LocalDateTime dateTime;
 
@@ -33,46 +34,30 @@ public class Seance implements Serializable {
     public Seance() {
     }
 
-    public Seance(int movieId, int roomId, LocalDateTime dateTime) {
-        this.movieId = movieId;
-        this.roomId = roomId;
+    public Seance(Movie movie, Room room, LocalDateTime dateTime) {
+        this.movie = movie;
+        this.room = room;
         this.dateTime = dateTime;
     }
-
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public int getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(int movieId) {
-        this.movieId = movieId;
-    }
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public Room getRoom() {
+        return room;
     }
 
     public LocalDateTime getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 
-//    public Movie getMovie() {
+    //    public Movie getMovie() {
 //        return movie;
 //    }
 }

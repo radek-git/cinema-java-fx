@@ -13,19 +13,19 @@ public class Employee implements Serializable{
     @Column(name="ID_EMPLOYEE", nullable = false, length = 20)
     private int id;
 
-    @Basic
+
     @Column(name = "NAME")
     private String name;
 
-    @Basic
+
     @Column(name = "SURNAME")
     private String surname;
 
-    @Basic
+
     @Column(name = "USERNAME")
     private String username;
 
-    @Basic
+
     @Column(name = "PASSWORD")
     private String password;
 

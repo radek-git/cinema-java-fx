@@ -14,19 +14,19 @@ public class Movie implements Serializable {
     @Column(name = "ID_MOVIE", nullable = false, length = 20)
     private int id;
 
-    @Basic
+
     @Column(name = "TITLE", length = 50)
     private String title;
 
-    @Basic
+
     @Column(name = "DESCRIPTION", length = 500)
     private String description;
 
-    @Basic
+
     @Column(name = "DURATION", length = 20)
     private int duration;
 
-    @Basic
+
     @Column(name = "POSTER_URL")
     private String posterUrl;
 

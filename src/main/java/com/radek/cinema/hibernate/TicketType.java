@@ -12,11 +12,11 @@ public class TicketType implements Serializable {
     @Column(name = "ID_TICKET_TYPE")
     private int id;
 
-    @Basic
+
     @Column(name = "ticket_type")
     private String name;
 
-    @Basic
+
     @Column(name = "price")
     private int price;
 

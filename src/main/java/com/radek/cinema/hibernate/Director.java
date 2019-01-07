@@ -12,11 +12,9 @@ public class Director implements Serializable {
     @Column(name = "ID_DIRECTOR", nullable = false, length = 11)
     private int id;
 
-    @Basic
     @Column(name = "NAME", length = 50)
     private String name;
 
-    @Basic
     @Column(name = "SURNAME", length = 50)
     private String surname;
 

@@ -13,15 +13,15 @@ public class Room implements Serializable {
     @Column(name = "ID_ROOM")
     private int id;
 
-    @Basic
+
     @Column(name = "NAME")
     private String name;
 
-    @Basic
+
     @Column(name = "ROWS")
     private int row;
 
-    @Basic
+
     @Column(name = "SEATS_IN_ROW")
     private int seatsInRow;
 

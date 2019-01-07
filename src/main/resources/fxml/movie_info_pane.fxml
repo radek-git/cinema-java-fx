@@ -20,10 +20,10 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Pane fx:id="description" layoutX="285.0" layoutY="113.0" prefHeight="106.0" prefWidth="417.0" />
+      <Pane fx:id="descriptionPane" layoutX="285.0" layoutY="113.0" prefHeight="106.0" prefWidth="417.0" />
       <ListView fx:id="directorsList" layoutX="24.0" layoutY="427.0" prefHeight="106.0" prefWidth="263.0" />
       <ListView fx:id="actorsList" layoutX="287.0" layoutY="244.0" prefHeight="183.0" prefWidth="417.0" />
-      <Pane fx:id="duration" layoutX="285.0" layoutY="71.0" prefHeight="29.0" prefWidth="128.0" />
+      <Pane fx:id="durationPane" layoutX="285.0" layoutY="71.0" prefHeight="29.0" prefWidth="165.0" />
       <Pane fx:id="genrePane" layoutX="474.0" layoutY="71.0" prefHeight="29.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

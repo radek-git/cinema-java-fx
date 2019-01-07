@@ -12,7 +12,7 @@ public class Genre implements Serializable {
     @Column(name = "ID_GENRE", nullable = false, length = 11)
     private int id;
 
-    @Basic
+
     @Column(name = "NAME", length = 50)
     private String name;
 

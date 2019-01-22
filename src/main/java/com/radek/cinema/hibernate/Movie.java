@@ -31,17 +31,17 @@ public class Movie implements Serializable {
     private String posterUrl;
 
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="movie_directors", joinColumns={@JoinColumn(name="ID_MOVIE")},
             inverseJoinColumns={@JoinColumn(name="ID_DIRECTOR")})
     private Set<Director> directors;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="movie_actors", joinColumns={@JoinColumn(name="ID_MOVIE")},
             inverseJoinColumns={@JoinColumn(name="ID_ACTOR")})
     private Set<Actor> actors;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="movie_genres", joinColumns={@JoinColumn(name="ID_MOVIE")},
             inverseJoinColumns={@JoinColumn(name="ID_GENRE")})
     private Set<Genre> genres;

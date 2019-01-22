@@ -131,9 +131,10 @@ public class Database {
 //            System.out.println(ticket.getSeanceId());
 //            System.out.println(ticket.getTicketType().getName());
 
-            Order order = session.get(Order.class, 13);
-            System.out.println(order.getId());
-            System.out.println(order.getSeance().getId());
+            Order order = session.get(Order.class, 4);
+            order.getTickets().forEach(ticket -> {
+                System.out.println(ticket.getRow());
+            });
 //
 //            session.getTransaction().commit();
         } catch (Exception e) {

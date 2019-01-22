@@ -14,8 +14,8 @@ public class Ticket implements Serializable {
 
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_SEANCE", referencedColumnName = "ID_SEANCE")
-    private Seance seance;
+    @JoinColumn(name = "ID_ORDER", referencedColumnName = "ID_ORDER")
+    private Order order;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_TICKET_TYPE", referencedColumnName = "ID_TICKET_TYPE")
@@ -34,8 +34,8 @@ public class Ticket implements Serializable {
     }
 
 
-    public Ticket(Seance seance, TicketType ticketType, int row, int seat) {
-        this.seance = seance;
+    public Ticket(Order order, TicketType ticketType, int row, int seat) {
+        this.order = order;
         this.ticketType = ticketType;
         this.row = row;
         this.seat = seat;
@@ -45,8 +45,8 @@ public class Ticket implements Serializable {
         return id;
     }
 
-    public Seance getSeance() {
-        return seance;
+    public Order getOrder() {
+        return order;
     }
 
     public TicketType getTicketType() {

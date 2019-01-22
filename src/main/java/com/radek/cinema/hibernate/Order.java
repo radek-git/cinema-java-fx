@@ -30,9 +30,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "ID_EMPLOYEE", referencedColumnName = "ID_EMPLOYEE")
     private Employee employee;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "order_tickets", joinColumns = {@JoinColumn(name = "ID_ORDER")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_TICKET")})
+    @OneToMany(mappedBy = "order")
     private Set<Ticket> tickets;
 
 

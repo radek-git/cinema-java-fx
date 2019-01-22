@@ -1,6 +1,11 @@
 
 
 src/main/resources/hibernate.cfg.xml
+.idea
+nb-configuration.xml
+nbactions.xml
+pom.xml
+cinema.iml
 
 
 # Created by https://www.gitignore.io/api/java,maven,intellij
